@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="One Small Step — choose one task, define one small next step, and keep going one step at a time." />
+  <title>One Small Step</title>
+  <meta name="theme-color" content="#faf6ec" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="One Small Step" />
+  <meta property="og:description" content="Choose one thing to make progress on, define one small next step, and keep going — one step at a time." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="One Small Step" />
+  <meta name="twitter:description" content="Choose one thing to make progress on, define one small next step, and keep going — one step at a time." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 28'%3E%3Cellipse cx='8' cy='21' rx='7' ry='5' fill='%23C9D6BE'/%3E%3Cellipse cx='18' cy='14' rx='7.5' ry='5.5' fill='%239DB495'/%3E%3Cellipse cx='28' cy='7' rx='6' ry='4.5' fill='%235F7F5B'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="brand">
+      <svg class="brand-icon" width="34" height="28" viewBox="0 0 34 28" aria-hidden="true" focusable="false">
+        <ellipse cx="8" cy="21" rx="7" ry="5" fill="#C9D6BE" />
+        <ellipse cx="18" cy="14" rx="7.5" ry="5.5" fill="#9DB495" />
+        <ellipse cx="28" cy="7" rx="6" ry="4.5" fill="#5F7F5B" />
+      </svg>
+      <span class="wordmark">One Small Step</span>
+    </header>
+
+    <main id="flow">
+      <!-- Screen 1 — choose a task -->
+      <section class="screen" id="screen-task" aria-labelledby="prompt-task">
+        <div class="progress" role="progressbar" aria-label="Setup progress" aria-valuemin="1" aria-valuemax="2" aria-valuenow="1">
+          <span class="seg is-filled"></span><span class="seg"></span>
+        </div>
+        <div class="illo" aria-hidden="true">
+          <svg width="148" height="104" viewBox="0 0 148 104" focusable="false">
+            <circle cx="112" cy="24" r="14" fill="#F2CFA0" />
+            <ellipse cx="74" cy="92" rx="58" ry="10" fill="#EFE3CC" />
+            <ellipse cx="42" cy="78" rx="20" ry="12" fill="#C9D6BE" />
+            <ellipse cx="74" cy="66" rx="24" ry="14" fill="#9DB495" />
+            <ellipse cx="106" cy="52" rx="20" ry="12" fill="#5F7F5B" />
+            <circle cx="106" cy="46" r="3" fill="#FAF6EC" />
+          </svg>
+        </div>
+        <h1 class="prompt" id="prompt-task" tabindex="-1">What&rsquo;s one thing you&rsquo;d like to make progress on today?</h1>
+        <label class="sr-only" for="taskInput">Your task</label>
+        <input class="field" id="taskInput" type="text" placeholder="e.g. Prepare for my presentation" autocomplete="off" maxlength="200" />
+        <p class="error" id="taskError" role="alert" hidden>Add a response to keep going.</p>
+        <button class="pill" id="taskContinue" type="button">Continue</button>
+      </section>
+
+      <!-- Screen 2 — define a next step -->
+      <section class="screen" id="screen-step" aria-labelledby="prompt-step" hidden>
+        <div class="progress" role="progressbar" aria-label="Setup progress" aria-valuemin="1" aria-valuemax="2" aria-valuenow="2">
+          <span class="seg is-filled"></span><span class="seg is-filled"></span>
+        </div>
+        <div class="back-row">
+          <button class="link" id="stepBack" type="button">&larr; Back</button>
+        </div>
+        <div class="illo" aria-hidden="true">
+          <svg width="148" height="104" viewBox="0 0 148 104" focusable="false">
+            <circle cx="36" cy="24" r="14" fill="#F2CFA0" />
+            <ellipse cx="74" cy="92" rx="58" ry="10" fill="#EFE3CC" />
+            <ellipse cx="74" cy="70" rx="26" ry="15" fill="#9DB495" />
+            <circle cx="74" cy="62" r="3.5" fill="#FAF6EC" />
+            <path d="M104 66 L124 66 M116 58 L124 66 L116 74" stroke="#5F7F5B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+          </svg>
+        </div>
+        <p class="context" id="stepTaskContext"></p>
+        <h1 class="prompt" id="prompt-step" tabindex="-1">What&rsquo;s one small step you can take next?</h1>
+        <label class="sr-only" for="stepInput">Your next step</label>
+        <input class="field" id="stepInput" type="text" placeholder="e.g. Open the document and write the first sentence" autocomplete="off" maxlength="200" />
+        <p class="error" id="stepError" role="alert" hidden>Add a response to keep going.</p>
+        <button class="pill" id="stepContinue" type="button">Continue</button>
+      </section>
+
+      <!-- Screen 3 — ready to act -->
+      <section class="screen" id="screen-ready" aria-labelledby="readyStepText" hidden>
+        <div class="illo" aria-hidden="true">
+          <svg width="148" height="104" viewBox="0 0 148 104" focusable="false">
+            <circle cx="112" cy="24" r="14" fill="#F2CFA0" />
+            <ellipse cx="74" cy="92" rx="58" ry="10" fill="#EFE3CC" />
+            <ellipse cx="52" cy="78" rx="20" ry="12" fill="#C9D6BE" />
+            <ellipse cx="88" cy="70" rx="24" ry="14" fill="#9DB495" />
+            <rect x="104" y="22" width="5" height="38" rx="2.5" fill="#5F7F5B" />
+            <path d="M109 24 L132 30 L109 38 Z" fill="#D9A679" />
+          </svg>
+        </div>
+        <p class="context-row">
+          <span class="context-text" id="readyTask"></span>
+          <button class="link" id="editTask" type="button">Edit</button>
+        </p>
+        <div class="ready-row">
+          <p class="ready-step" id="readyStepText" tabindex="-1"></p>
+          <button class="link" id="editStep" type="button">Edit</button>
+        </div>
+        <button class="pill" id="doneBtn" type="button">Done</button>
+      </section>
+
+      <!-- Screen 4 — step completed -->
+      <section class="screen" id="screen-done" aria-labelledby="doneMsg" hidden>
+        <div class="illo" aria-hidden="true">
+          <svg width="148" height="104" viewBox="0 0 148 104" focusable="false">
+            <circle cx="30" cy="26" r="4" fill="#D9A679" />
+            <circle cx="120" cy="20" r="4" fill="#9DB495" />
+            <circle cx="128" cy="66" r="3" fill="#F2CFA0" />
+            <circle cx="22" cy="64" r="3" fill="#C9D6BE" />
+            <ellipse cx="74" cy="92" rx="58" ry="10" fill="#EFE3CC" />
+            <circle cx="74" cy="58" r="24" fill="#9DB495" />
+            <path d="M63 58 L71 66 L86 50" stroke="#FAF6EC" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+          </svg>
+        </div>
+        <h1 class="prompt" id="doneMsg" tabindex="-1">Nice work. One step at a time.</h1>
+        <p class="completed">
+          <span class="check" aria-hidden="true">&check;</span>
+          <span id="doneStepText"></span>
+        </p>
+        <button class="pill" id="nextStepBtn" type="button">Choose the next step</button>
+      </section>
+    </main>
+
+    <p class="device-note">Your plan stays on this device.</p>
+  </div>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
